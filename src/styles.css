@@ -2,23 +2,62 @@
   box-sizing: border-box;
 }
 body {
+  height: 100vh;
+  width: 100vw;
   margin: 0;
-  font-family: sans-serif;
+  padding-top: 3rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background: #1488cc; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2b32b2,
+    #1488cc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2b32b2,
+    #1488cc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+h1 {
+  color: white;
+  text-align: center;
+}
+input,
+button {
+  font: inherit;
 }
 .container {
+  margin: 0 auto;
+  background-color: whitesmoke;
+  height: 90%;
+  width: 90%;
   display: flex;
-  gap: 20px;
+
+  flex-wrap: wrap;
+  gap: 5%;
   justify-content: center;
+  align-content: flex-start;
+  padding: 2rem;
+
+  background: #161a2b;
+  border: 2px black solid;
+  border-radius: 1em;
+}
+.input-container {
+  width: 50%;
+  max-width: 40rem;
+  min-width: 30rem;
 }
 .input {
+  position: relative; /* Position is relative to set button to bottom right*/
   height: fit-content;
-  border: black 2px solid;
+  border: rgba(93, 12, 255, 1) 2px solid;
   padding: 1rem;
-  width: 50%;
-  /* max-width: 40rem; */
 }
-
 .input label {
+  color: white;
   display: block;
   font-weight: bold;
   margin-bottom: 0.5rem;
@@ -27,23 +66,51 @@ body {
 .input input {
   width: 100%;
   border: 1px solid #ccc;
-  padding: 0.15rem;
+  padding: 16px;
   margin-bottom: 0.5rem;
+}
+.input button {
+  border: black 2px solid;
+  border-radius: 0.5rem;
+  color: white;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  height: 40px;
+  width: 150px;
+  min-height: fit-content;
+  min-width: fit-content;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgb(215, 100, 0) 100%
+  );
 }
 #quantity {
   width: 50%;
 }
-.input input:focus {
+/* .input input:focus {
   outline: none;
   border-color: #4f005f;
-}
-
-#list {
-  margin: 0;
-  padding: 0;
-  border: black 2px solid;
-  width: 50%;
+} */
+.list-container {
   display: flex;
+  flex-direction: column;
+  width: 45%;
+  max-width: 40rem;
+  min-width: 30rem;
+  max-height: 100%;
+}
+#list {
+  color: white;
+  margin: 0;
+  /* padding: 1rem; */
+  /* border: white 2px solid; */
+  width: 100%;
+  overflow: scroll;
+  /* max-height: 50%; */
+  display: flex;
+  gap: 10px;
   flex-direction: column;
 }
 
@@ -51,4 +118,90 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.list-item * {
+  padding: 16px;
+}
+
+.list-item-name {
+  border: black 2px solid;
+  border-radius: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 50%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 118, 20, 1) 0%,
+    rgba(255, 84, 17, 1) 100%
+  );
+}
+
+.list-item:nth-of-type(2n + 1) .list-item-name {
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+}
+
+/* .list-item-name:nth-of-type(2n) {
+  background: red;
+} */
+
+.list-item-quantity {
+  border: black 2px solid;
+  border-radius: 0.5rem;
+  text-align: center;
+  flex: 20%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: white;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 40%,
+    rgba(17, 17, 17, 1) 100%
+  );
+}
+
+.edit-btn {
+  color: white;
+  flex: 10%;
+  border: black 2px solid;
+  border-radius: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+  );
+}
+.del-btn {
+  color: white;
+  flex: 10%;
+  border: black 2px solid;
+  border-radius: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 12, 241, 1) 0%,
+    rgba(250, 0, 135, 1) 100%
+  );
+}
+button {
+  transition: all 0.3s ease;
+}
+button:hover {
+  transform: scale(1.1) perspective(1px);
+}
+@media (max-width: 1300px) {
+  .list-container {
+    max-height: 40%;
+  }
+}
+
+@media (max-height: 620px) {
+  .list-container {
+    max-height: 30%;
+  }
 }

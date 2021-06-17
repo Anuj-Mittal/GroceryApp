@@ -3,22 +3,41 @@
   <head>
     <title>Grocery List</title>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.6" />
     <link rel="stylesheet" href="./src/styles.css" />
   </head>
 
   <body>
     <div id="app" class="container">
-      <div class="input">
-        <form id="form">
-          <label for="itemName">Item Name</label>
-          <input id="itemName" type="text" />
-          <label for="quantity">Quantity</label>
-          <input id="quantity" type="number" />
-          <button type="submit">Add Item</button>
-        </form>
+      <div class="input-container">
+        <h1 id="add-title">Add Grocery Item</h1>
+        <h1 id="edit-title" style="display: none">Edit Grocery Item</h1>
+        <div class="input">
+          <form id="form">
+            <label for="itemName">Item Name</label>
+            <input
+              id="itemName"
+              type="text"
+              placeholder="Add Item Name"
+              required
+            />
+            <label for="quantity">Quantity</label>
+            <input
+              id="quantity"
+              type="number"
+              placeholder="Add Item Quantity"
+              required
+            />
+
+            <button type="submit">Add Item</button>
+          </form>
+        </div>
       </div>
 
-      <div id="list"></div>
+      <div class="list-container">
+        <h1>Grocery List</h1>
+        <div id="list"></div>
+      </div>
     </div>
     <script src="src/index.js"></script>
   </body>
