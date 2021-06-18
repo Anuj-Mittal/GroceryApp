@@ -70,7 +70,7 @@ button {
 .input input {
   width: 100%;
   border: 1px solid #ccc;
-  padding: 16px;
+  padding: 1em;
   margin-bottom: 0.5rem;
   outline: none;
   border-radius: var(--borderRadius);
@@ -80,10 +80,10 @@ button {
   border-radius: var(--borderRadius);
   color: white;
   position: absolute;
-  bottom: 16px;
-  right: 16px;
-  height: 40px;
-  width: 150px;
+  bottom: 1em;
+  right: 1em;
+  height: 2.5em;
+  width: 9.375em;
   min-height: fit-content;
   min-width: fit-content;
   background: linear-gradient(
@@ -112,7 +112,7 @@ button {
   width: 100%;
   overflow: scroll;
   display: flex;
-  gap: 10px;
+  gap: 0.625em;
   flex-direction: column;
 }
 .list-item {
@@ -121,7 +121,7 @@ button {
   align-items: center;
 }
 .list-item * {
-  padding: 16px;
+  padding: 1em;
 }
 .list-item-name {
   border: black 2px solid;
@@ -187,5 +187,33 @@ button {
     .list-container {
       max-height: 30%;
     }
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    font-size: 0.7em;
+  }
+  #quantity {
+    width: 100%;
+  }
+  .input button {
+    position: static;
+    height: 2.5em;
+    width: 9.375em;
+    min-height: fit-content;
+    min-width: fit-content;
+    background: linear-gradient(
+      90deg,
+      rgba(93, 12, 255, 1) 0%,
+      rgb(215, 100, 0) 100%
+    );
+  }
+
+  .input-container {
+    min-width: 15rem;
+  }
+  .list-container {
+    min-width: 17rem;
   }
 }
