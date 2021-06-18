@@ -17,7 +17,7 @@ body {
     #8e2de2
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-h1 {
+.container h1 {
   color: white;
   text-align: center;
 }
@@ -110,6 +110,14 @@ button {
   min-width: 25rem;
   max-height: 100%;
 }
+#empty-list-title {
+  color: white;
+  text-align: center;
+  padding: 1em;
+  background: #8e2de2; /* fallback for old browsers */
+  background: linear-gradient(to bottom, #4b00e022, #8d2de200);
+  border-radius: var(--borderRadius);
+}
 #list {
   color: white;
   margin: 0;
@@ -152,10 +160,8 @@ button {
   border: black 2px solid;
   border-radius: var(--borderRadius);
   text-align: center;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   flex: 20%;
+  font-weight: bold;
   /* white-space: nowrap; */
   overflow: hidden;
   /* text-overflow: ellipsis; */

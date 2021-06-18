@@ -66,7 +66,8 @@ const createLi = (itemName, quantity) => {
     } else {
       elList.removeChild(elLi);
     }
-
+    // Check if list is empty, update dialogue
+    setEmptyListTitle();
     // Delete element and update local storage
     updateLocalStorage();
   });
@@ -91,9 +92,22 @@ const getListFromLocalStorage = () => {
   }
 };
 
+/**
+ * This function shows the 'grocery list is empty' dialogue, if required.
+ */
+const setEmptyListTitle = () => {
+  const elEmptyListTitle = document.getElementById("empty-list-title");
+  if (elList.children.length > 0) {
+    elEmptyListTitle.style.display = "none";
+  } else {
+    elEmptyListTitle.style.display = "block";
+  }
+};
+
 // Getting data from local storage and adding to the list
 getListFromLocalStorage();
-
+// Check if list is empty, update dialogue
+setEmptyListTitle();
 /**
  * This function takes item name as input and checks wether
  * current item is already in the list. If the given itemName is already in the list
@@ -173,6 +187,8 @@ elForm.addEventListener("submit", (event) => {
 
   // Resetting form and title and getting back to 'Add Form State'.
   resetForm();
+  // Check if list is empty, update dialogue
+  setEmptyListTitle();
   // Update local storage.
   updateLocalStorage();
 });
