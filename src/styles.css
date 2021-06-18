@@ -1,3 +1,6 @@
+:root {
+  --borderRadius: 0.5em; /*Border Radius of all elements*/
+}
 * {
   box-sizing: border-box;
 }
@@ -6,9 +9,7 @@ body {
   width: 100vw;
   margin: 0;
   padding-top: 3rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-
+  font-family: "Trebuchet MS", Arial, sans-serif;
   background: #8e2de2; /* fallback for old browsers */
   background: linear-gradient(
     to right,
@@ -20,6 +21,13 @@ h1 {
   color: white;
   text-align: center;
 }
+
+button {
+  transition: all 0.3s ease;
+}
+button:hover {
+  transform: scale(1.1) perspective(1px);
+}
 input,
 button {
   font: inherit;
@@ -30,26 +38,27 @@ button {
   height: 90%;
   width: 90%;
   display: flex;
-
   flex-wrap: wrap;
   gap: 5%;
   justify-content: center;
   align-content: flex-start;
   padding: 2rem;
-
-  background: #161a2b;
+  background: #0f111a;
   border: 2px black solid;
   border-radius: 1em;
 }
+
+/* INPUT PART */
 .input-container {
   width: 50%;
   max-width: 40rem;
-  min-width: 30rem;
+  min-width: 25rem;
 }
 .input {
   position: relative; /* Position is relative to set button to bottom right*/
   height: fit-content;
   border: rgba(93, 12, 255, 1) 2px solid;
+  border-radius: var(--borderRadius);
   padding: 1rem;
 }
 .input label {
@@ -58,17 +67,17 @@ button {
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
-
 .input input {
   width: 100%;
   border: 1px solid #ccc;
   padding: 16px;
   margin-bottom: 0.5rem;
   outline: none;
+  border-radius: var(--borderRadius);
 }
 .input button {
   border: black 2px solid;
-  border-radius: 0.5rem;
+  border-radius: var(--borderRadius);
   color: white;
   position: absolute;
   bottom: 16px;
@@ -86,31 +95,26 @@ button {
 #quantity {
   width: 50%;
 }
-/* .input input:focus {
-  outline: none;
-  border-color: #4f005f;
-} */
+
+/* LIST PART */
+
 .list-container {
   display: flex;
   flex-direction: column;
   width: 45%;
   max-width: 40rem;
-  min-width: 30rem;
+  min-width: 25rem;
   max-height: 100%;
 }
 #list {
   color: white;
   margin: 0;
-  /* padding: 1rem; */
-  /* border: white 2px solid; */
   width: 100%;
   overflow: scroll;
-  /* max-height: 50%; */
   display: flex;
   gap: 10px;
   flex-direction: column;
 }
-
 .list-item {
   display: flex;
   justify-content: space-between;
@@ -119,10 +123,9 @@ button {
 .list-item * {
   padding: 16px;
 }
-
 .list-item-name {
   border: black 2px solid;
-  border-radius: 0.5rem;
+  border-radius: var(--borderRadius);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -133,28 +136,13 @@ button {
     rgba(255, 84, 17, 1) 100%
   );
 }
-
 .list-item:nth-of-type(2n + 1) .list-item-name {
-  background: #cb356b; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #bd3f32,
-    #cb356b
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #bd3f32,
-    #cb356b
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #cb356b;
+  background: linear-gradient(to right, #bd3f32, #cb356b);
 }
-
-/* .list-item-name:nth-of-type(2n) {
-  background: red;
-} */
-
 .list-item-quantity {
   border: black 2px solid;
-  border-radius: 0.5rem;
+  border-radius: var(--borderRadius);
   text-align: center;
   flex: 20%;
   white-space: nowrap;
@@ -168,12 +156,11 @@ button {
     rgba(17, 17, 17, 1) 100%
   );
 }
-
 .edit-btn {
   color: white;
   flex: 10%;
   border: black 2px solid;
-  border-radius: 0.5rem;
+  border-radius: var(--borderRadius);
   background: linear-gradient(
     90deg,
     rgba(20, 159, 255, 1) 0%,
@@ -184,27 +171,21 @@ button {
   color: white;
   flex: 10%;
   border: black 2px solid;
-  border-radius: 0.5rem;
+  border-radius: var(--borderRadius);
   background: linear-gradient(
     90deg,
     rgba(255, 12, 241, 1) 0%,
     rgba(250, 0, 135, 1) 100%
   );
 }
-button {
-  transition: all 0.3s ease;
-}
-button:hover {
-  transform: scale(1.1) perspective(1px);
-}
-@media (max-width: 1260px) {
+
+@media (max-width: 1066px) {
   .list-container {
     max-height: 40%;
   }
-}
-
-@media (max-height: 620px) {
-  .list-container {
-    max-height: 30%;
+  @media (max-height: 620px) {
+    .list-container {
+      max-height: 30%;
+    }
   }
 }
