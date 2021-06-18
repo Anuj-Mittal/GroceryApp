@@ -109,8 +109,6 @@ button {
   max-width: 40rem;
   min-width: 25rem;
   max-height: 100%;
-  border-radius: var(--borderRadius);
-  background: linear-gradient(180deg, #4b00e023 0%, #8d2de200 70%);
 }
 #list {
   color: white;
