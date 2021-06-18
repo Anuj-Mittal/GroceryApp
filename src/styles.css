@@ -199,6 +199,8 @@ button {
   }
   .input button {
     position: static;
+    display: block;
+    margin: 0 auto;
     height: 2.5em;
     width: 9.375em;
     min-height: fit-content;
