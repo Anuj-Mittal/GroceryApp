@@ -73,7 +73,12 @@ button {
   padding: 1em;
   margin-bottom: 0.5rem;
   outline: none;
+  border: black 2px solid;
   border-radius: var(--borderRadius);
+}
+.input input:focus,
+.input input:hover {
+  border-color: rgba(255, 118, 20, 1);
 }
 .input button {
   border: black 2px solid;
