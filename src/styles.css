@@ -8,16 +8,12 @@ body {
   padding-top: 3rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  background: #1488cc; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #2b32b2,
-    #1488cc
-  ); /* Chrome 10-25, Safari 5.1-6 */
+
+  background: #8e2de2; /* fallback for old browsers */
   background: linear-gradient(
     to right,
-    #2b32b2,
-    #1488cc
+    #4a00e0,
+    #8e2de2
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 h1 {
@@ -68,6 +64,7 @@ button {
   border: 1px solid #ccc;
   padding: 16px;
   margin-bottom: 0.5rem;
+  outline: none;
 }
 .input button {
   border: black 2px solid;
@@ -138,11 +135,17 @@ button {
 }
 
 .list-item:nth-of-type(2n + 1) .list-item-name {
+  background: #cb356b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #bd3f32,
+    #cb356b
+  ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
-    90deg,
-    rgba(93, 12, 255, 1) 0%,
-    rgba(155, 0, 250, 1) 100%
-  );
+    to right,
+    #bd3f32,
+    #cb356b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 /* .list-item-name:nth-of-type(2n) {
@@ -194,7 +197,7 @@ button {
 button:hover {
   transform: scale(1.1) perspective(1px);
 }
-@media (max-width: 1300px) {
+@media (max-width: 1260px) {
   .list-container {
     max-height: 40%;
   }
