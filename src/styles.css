@@ -118,7 +118,7 @@ button {
 .list-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
 }
 .list-item * {
   padding: 1em;
@@ -126,9 +126,13 @@ button {
 .list-item-name {
   border: black 2px solid;
   border-radius: var(--borderRadius);
-  white-space: nowrap;
+  /* white-space: nowrap; */
   overflow: hidden;
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis; */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  white-space: normal;
   flex: 50%;
   background: linear-gradient(
     90deg,
@@ -145,9 +149,13 @@ button {
   border-radius: var(--borderRadius);
   text-align: center;
   flex: 20%;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   overflow: hidden;
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis; */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  white-space: normal;
   background-color: white;
   background: rgb(0, 0, 0);
   background: linear-gradient(
