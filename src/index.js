@@ -1,14 +1,21 @@
 const elForm = document.getElementById("form"); // Form Element
-elForm.setAttribute("data-form-state", "add"); // Default form is in 'add item' state
+const elList = document.getElementById("list"); // List of items, each item is a HTMLDivElement element
+const elInputItemName = document.getElementById("input-item-name");
+const elInputQuantity = document.getElementById("input-quantity");
+const elInputButton = document.getElementById("input-button");
+const elEmptyListTitle = document.getElementById("empty-list-title");
 
-const elList = document.getElementById("list"); // List of items, each item is a <div> element
+elForm.setAttribute("data-form-state", "add"); // Default form is in 'add item' state
 
 /**
  * This function takes itemName and quantity as input and returns
- * an div element corresponding to this item which should be added on DOM.
+ * an div element corresponding to this item which should be added to DOM.
+ * Each list item (HTMLDivElement) contains 4 elements :
+ * item name (HTMLSpanElement), quantity (HTMLSpanElement),
+ * edit button (HTMLButtonElement) and delete button (HTMLButtonElement).
  * @param {String} itemName
  * @param {String} quantity
- * @returns {<div> Object}
+ * @returns {<HTMLDivElement> Object}
  */
 
 const createLi = (itemName, quantity) => {
@@ -16,7 +23,7 @@ const createLi = (itemName, quantity) => {
   // Each item is assigned unique id
   elLi.setAttribute("id", Math.random());
   elLi.classList.add("list-item");
-  // Storing itemName and quantity as attributes on the list item <div>.
+  // Storing itemName and quantity as attributes on the list item HTMLDivElement.
   elLi.setAttribute("data-name", itemName);
   elLi.setAttribute("data-quantity", quantity);
 
@@ -38,12 +45,12 @@ const createLi = (itemName, quantity) => {
   // Edit button event handler
   elEditButton.addEventListener("click", () => {
     elForm.setAttribute("data-form-state", "edit");
-    // Sending item's id to form by setting attribtutes.
+    // Sending item's id to form by setting attribtutes, so that we know which item is being edited.
     elForm.setAttribute("data-edit-id", elLi.getAttribute("id"));
     // Sending data to the form
-    elForm.elements[0].value = elLi.getAttribute("data-name");
-    elForm.elements[1].value = elLi.getAttribute("data-quantity");
-    elForm.elements[2].innerText = "Edit Item";
+    elInputItemName.value = elLi.getAttribute("data-name");
+    elInputQuantity.value = elLi.getAttribute("data-quantity");
+    elInputButton.innerText = "Edit Item";
 
     // Switching the main to title to 'Edit Grocery Item'
     document.getElementById("add-title").style.display = "none";
@@ -73,7 +80,6 @@ const createLi = (itemName, quantity) => {
   });
 
   elLi.append(elItemName, elQuantity, elEditButton, elDeleteButton);
-
   return elLi;
 };
 
@@ -96,7 +102,6 @@ const getListFromLocalStorage = () => {
  * This function shows the 'grocery list is empty' dialogue, if required.
  */
 const setEmptyListTitle = () => {
-  const elEmptyListTitle = document.getElementById("empty-list-title");
   if (elList.children.length > 0) {
     elEmptyListTitle.style.display = "none";
   } else {
@@ -111,7 +116,7 @@ setEmptyListTitle();
 /**
  * This function takes item name as input and checks wether
  * current item is already in the list. If the given itemName is already in the list
- * it returns that <div> Object corresponding to that item.
+ * it returns that HTMLDivElement corresponding to that item.
  * Otherwise, returns null.
  * @param {String} itemName
  * @returns
@@ -126,7 +131,7 @@ const getItem = (itemName) => {
 
 /**
  * This function takes the item and updates its quantity by extraQuantity.
- * @param {<div> Object} item
+ * @param {HTMLDivElement} item
  * @param {string} extraQuantity
  */
 const updateItem = (item, extraQuantity) => {
@@ -139,9 +144,9 @@ const updateItem = (item, extraQuantity) => {
 
 // Resets form back to 'add state'.
 const resetForm = () => {
-  elForm.elements[0].value = "";
-  elForm.elements[1].value = "";
-  elForm.elements[2].innerText = "Add Item";
+  elInputItemName.value = "";
+  elInputQuantity.value = "";
+  elInputButton.innerText = "Add Item";
   elForm.setAttribute("data-form-state", "add");
   document.getElementById("add-title").style.display = "block";
   document.getElementById("edit-title").style.display = "none";

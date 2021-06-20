@@ -10,12 +10,8 @@ body {
   margin: 0;
   padding-top: 3rem;
   font-family: "Trebuchet MS", Arial, sans-serif;
-  background: #8e2de2; /* fallback for old browsers */
-  background: linear-gradient(
-    to right,
-    #4a00e0,
-    #8e2de2
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #8e2de2; /* Fallback */
+  background: linear-gradient(to right, #4a00e0, #8e2de2);
 }
 .container h1 {
   color: white;
@@ -26,7 +22,7 @@ button {
   transition: all 0.3s ease;
 }
 button:hover {
-  transform: scale(1.1) perspective(1px);
+  transform: scale(1.05) perspective(1px);
 }
 input,
 button {
@@ -34,7 +30,6 @@ button {
 }
 .container {
   margin: 0 auto;
-  background-color: whitesmoke;
   height: 90%;
   width: 90%;
   display: flex;
@@ -94,10 +89,10 @@ button {
   background: linear-gradient(
     90deg,
     rgba(93, 12, 255, 1) 0%,
-    rgb(215, 100, 0) 100%
+    rgb(255, 50, 5) 100%
   );
 }
-#quantity {
+#input-quantity {
   width: 50%;
 }
 
@@ -134,13 +129,11 @@ button {
 }
 .list-item * {
   padding: 1em;
+  border-radius: var(--borderRadius);
+  border: black 2px solid;
 }
 .list-item-name {
-  border: black 2px solid;
-  border-radius: var(--borderRadius);
-  /* white-space: nowrap; */
   overflow: hidden;
-  /* text-overflow: ellipsis; */
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
@@ -157,14 +150,10 @@ button {
   background: linear-gradient(to right, #bd3f32, #cb356b);
 }
 .list-item-quantity {
-  border: black 2px solid;
-  border-radius: var(--borderRadius);
   text-align: center;
   flex: 20%;
   font-weight: bold;
-  /* white-space: nowrap; */
   overflow: hidden;
-  /* text-overflow: ellipsis; */
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
@@ -180,26 +169,25 @@ button {
 .edit-btn {
   color: white;
   flex: 10%;
-  border: black 2px solid;
-  border-radius: var(--borderRadius);
   background: linear-gradient(
     90deg,
     rgba(20, 159, 255, 1) 0%,
     rgba(17, 122, 255, 1) 100%
   );
+  z-index: 100;
 }
 .del-btn {
   color: white;
   flex: 10%;
-  border: black 2px solid;
-  border-radius: var(--borderRadius);
   background: linear-gradient(
     90deg,
     rgba(255, 12, 241, 1) 0%,
     rgba(250, 0, 135, 1) 100%
   );
+  z-index: 100;
 }
 
+/* Media Queries */
 @media (max-width: 1066px) {
   .list-container {
     max-height: 40%;
@@ -215,22 +203,13 @@ button {
   body {
     font-size: 0.7em;
   }
-  #quantity {
+  #input-quantity {
     width: 100%;
   }
   .input button {
     position: static;
     display: block;
     margin: 0 auto;
-    height: 2.5em;
-    width: 9.375em;
-    min-height: fit-content;
-    min-width: fit-content;
-    background: linear-gradient(
-      90deg,
-      rgba(93, 12, 255, 1) 0%,
-      rgb(215, 100, 0) 100%
-    );
   }
 
   .input-container {
